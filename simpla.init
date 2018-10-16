@@ -1,20 +1,21 @@
-// Import Simpla and OAuth adapter
-import Simpla from 'simpla';
-import SimplaNetlify from 'simpla/adapters/netlify';
+<!-- Include Simpla, Netlify auth adapter, and cross-browser polyfill-->
+<script src="https://unpkg.com/simpla@^3.0.0"></script>
+<script src="https://unpkg.com/simpla@^3.0.0/adapters/netlify.js"></script>
+<script src="https://unpkg.com/webcomponents.js@^0.7.24/webcomponents-lite.min.js" async></script>
 
-// Init Simpla
-Simpla.init({
+<!-- Init Simpla -->
+<script>
+  Simpla.init({
 
-  // Github repo to store content in
-  repo: 'username/repo',
+    // The Github repo you want Simpla to use
+    repo: 'Meikii/meikiSimpla',
 
-  // Adapter to authenticate users with Github
-  auth: new SimplaNetlify({ site: 'mysite' }),
+    // Netlify auth adapter, initialize with your Netlify site name
+    auth: new SimplaNetlify({ site: 'Meiki Personal' }),
 
-  // Public URL of your content (optional)
-  source: 'https://mysite.netlify.com'
+    // Public content source (optional)
+    // Defaults to fetching directly from Github
+    source: window.location.origin
 
-});
-
-// Add Simpla to window global for components to access
-window.Simpla = Simpla;
+  });
+</script>
